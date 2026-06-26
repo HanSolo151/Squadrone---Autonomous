@@ -265,14 +265,12 @@ async def rtl():
 
 async def main(): 
 
-    #await pre_check()
+    await pre_check()
 
-    await asyncio.gather(telem_data_check(),
-                         test()
-                         )
+    asyncio.create_task(telem_data_check())
                          
 
-    '''await flight_ops()
+    await flight_ops()
        
 
 
@@ -283,7 +281,7 @@ async def main():
     await rtl()
     await rtl()
     await rtl()
-    await rtl()'''
+    await rtl()
 
 if __name__ == "__main__":
     asyncio.run(main())
